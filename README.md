@@ -23,4 +23,8 @@ Even though momentum can be good algorithm, it can sometimes overpredict (oversh
 ![Step size vs  Number of iterations](https://user-images.githubusercontent.com/52764007/61092662-11cc3000-a43f-11e9-8df2-7e37f17d71c8.JPG)
 ![Steps vs Loss](https://user-images.githubusercontent.com/52764007/61092663-11cc3000-a43f-11e9-9d08-a5edb7d9c4ea.JPG)
 
-We can see from the graph that the number of iterations reduce as step size increases as we move faster towards the minima. Also, the loss function approaches a constant value at approximately 1000 iterations. The visualisation
+We can see from the graph that the number of iterations reduce as step size increases as we move faster towards the minima. Also, the loss function approaches a constant value at approximately 1000 iterations. For momentum and accelerated gradients we will reach the minima in fewer iterations.
+
+However, accelerated is the recommended one as it corrects the overshooting aspect of the momentum method.
+
+The visualisation function shows the plot of losses from camel hump function against x and y values.
