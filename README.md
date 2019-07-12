@@ -9,10 +9,18 @@ Vanilla descent is the pure form of gradient descent. It works by taking small s
 Two modifications to plain vanilla gradient descent.
 
 a. Momentum
-In momentum, past steps are considered before taking the next one. Using the momentum, we would generally avoid the zig zag behaviour and also avoids getting stuck at the saddle points. It helps in computing an exponentially weighted average of the gradients which would then be used to update the weights. Momentum-based gradient descent oscillates in and out of minima because it would have accumulated more history by the time it reaches minima resulting in taking larger and larger steps evidently leads to overshooting the objective. Despite the u-turns, it still converges faster than the vanilla gradient descent. Consider a situation where you are going to a newly opened cinema hall and you get help from people on the way. If everyone is pointing you towards the same direction you will go faster and faster in that direction with more confidence.In effect, the momentum works faster than the pure vanilla gradient descent algorithm.
+In momentum, past steps are considered before taking the next one. This will help in avoiding the zig zag behaviour (re-routing) or getting stuck at the saddle points. It computes an exponentially weighted average of the gradients which is used to update the weights. It oscillates in and out of minima because it would have accumulated more history by the time it reaches minima resulting in taking larger and larger steps and leads to overshooting the objective. Despite the u-turns, it still converges faster than the vanilla gradient descent. 
+
+Consider a situation where you are going to a newly opened cinema hall and you get help from people on the way. If everyone is pointing you towards the same direction you will go faster and faster in that direction with more confidence.Therefore, the momentum works faster than the pure vanilla gradient descent algorithm.
 
 b. Nesterov’s Accelerated Gradient
 
-Even though momentum can be good algorithm, it can sometimes overshoot. If the gradient keeps on getting flatter or is reverses direction ahead, there is a need to slow down. Nesterov’s Accelerated Gradient helps us in calculating the gradient someway ahead of where we are now. This method can be viewed as a correction factor for the momentum method.
+Even though momentum can be good algorithm, it can sometimes overpredict (overshoot). If the gradient keeps on getting flatter or is reverses direction ahead, there is a need to slow down. Nesterov’s accelerated Gradient helps us in calculating the gradient someway ahead of where we are now. This method can be viewed as a correction factor for the momentum method. Instead of moving two steps at a time, we first take a small step in the direction ( based on past history) and then update the path based on current location (new gradient)
 
 ![image](https://user-images.githubusercontent.com/52764007/61092306-a9308380-a43d-11e9-872b-4eecc6b587ae.png)
+![Loss vs Iteration](https://user-images.githubusercontent.com/52764007/61092660-11339980-a43f-11e9-8bd4-ac4899e57b7a.png)
+![Camel Hump](https://user-images.githubusercontent.com/52764007/61092661-11cc3000-a43f-11e9-8899-e2d94d7d57f2.JPG)
+![Step size vs  Number of iterations](https://user-images.githubusercontent.com/52764007/61092662-11cc3000-a43f-11e9-8df2-7e37f17d71c8.JPG)
+![Steps vs Loss](https://user-images.githubusercontent.com/52764007/61092663-11cc3000-a43f-11e9-9d08-a5edb7d9c4ea.JPG)
+
+We can see from the graph that the number of iterations reduce as step size increases as we move faster towards the minima. Also, the loss function approaches a constant value at approximately 1000 iterations. The visualisation
